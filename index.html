@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Field Guide to Staying Safe Online</title>
+<meta name="description" content="A plain-language field guide to the threats, habits, and recovery steps that keep your accounts and data safe.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <div class="masthead__mark" aria-hidden="true">
+      <svg viewBox="0 0 48 48" width="34" height="34">
+        <path d="M24 3 L43 11 V22 C43 34 35 42 24 46 C13 42 5 34 5 22 V11 Z" fill="none" stroke="currentColor" stroke-width="2.5"/>
+        <path d="M15 24 L21 30 L34 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="masthead__text">
+      <p class="masthead__kicker">A field guide, issue no. 01</p>
+      <h1 class="masthead__title">Staying Safe Online</h1>
+    </div>
+    <button id="modeToggle" class="mode-toggle" type="button" aria-pressed="false">
+      <span class="mode-toggle__dot" aria-hidden="true"></span>
+      <span class="mode-toggle__label">Night mode</span>
+    </button>
+  </div>
+  <p class="masthead__deck">
+    Six short briefings on the threats you'll actually run into, and the habits that quietly stop most of them. No jargon, no fear-mongering , just what to do.
+  </p>
+  <nav class="toc" aria-label="Table of contents">
+    <ol>
+      <li><a href="#threats">01 &nbsp;Common threats</a></li>
+      <li><a href="#habits">02 &nbsp;Daily habits</a></li>
+      <li><a href="#passwords">03 &nbsp;Password safety</a></li>
+      <li><a href="#phishing">04 &nbsp;Phishing red flags</a></li>
+      <li><a href="#social">05 &nbsp;Social media</a></li>
+      <li><a href="#recovery">06 &nbsp;If you're hacked</a></li>
+    </ol>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="briefing" id="threats" aria-labelledby="threats-title">
+    <div class="briefing__head">
+      <span class="briefing__num">01</span>
+      <div>
+        <h2 id="threats-title">Five threats worth knowing by name</h2>
+        <p class="briefing__intro">Most attacks are one of these five. Learn the shape of each and the rest gets easier to spot.</p>
+      </div>
+    </div>
+
+    <div class="accordion" data-accordion>
+
+      <div class="entry">
+        <button class="entry__trigger" aria-expanded="true">
+          <span class="entry__tag threat">Malware</span>
+          <span class="entry__title">Software that shouldn't be there</span>
+          <span class="entry__chevron" aria-hidden="true"></span>
+        </button>
+        <div class="entry__panel">
+          <p>Malware is any program built to damage, spy on, or take control of your device , viruses that ride inside files, worms that spread on their own, and trojans disguised as something useful.</p>
+          <p class="entry__example">Often arrives through: pirated downloads, infected attachments, or fake installers.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <button class="entry__trigger" aria-expanded="false">
+          <span class="entry__tag threat">Ransomware</span>
+          <span class="entry__title">Your files, held for payment</span>
+          <span class="entry__chevron" aria-hidden="true"></span>
+        </button>
+        <div class="entry__panel">
+          <p>A type of malware that locks or encrypts your files, then demands payment for the key to get them back. It's spread hospitals, pipelines, and universities into full shutdowns in minutes.</p>
+          <p class="entry__example">Your best defence isn't paying , it's a backup you made before it happened.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <button class="entry__trigger" aria-expanded="false">
+          <span class="entry__tag threat">Phishing</span>
+          <span class="entry__title">A message built to make you act fast</span>
+          <span class="entry__chevron" aria-hidden="true"></span>
+        </button>
+        <div class="entry__panel">
+          <p>An email, text, or call that impersonates someone you trust , your bank, your university, a coworker to get you to click a link, hand over a password, or send money.</p>
+          <p class="entry__example">See briefing 04 for the exact tells.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <button class="entry__trigger" aria-expanded="false">
+          <span class="entry__tag threat">Credential attacks</span>
+          <span class="entry__title">Someone else, wearing your login</span>
+          <span class="entry__chevron" aria-hidden="true"></span>
+        </button>
+        <div class="entry__panel">
+          <p>Attackers guess weak passwords, buy leaked ones from old breaches, or test stolen password lists against new sites , a technique called credential stuffing. It works because people reuse passwords.</p>
+          <p class="entry__example">One unique password per site closes this door entirely.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <button class="entry__trigger" aria-expanded="false">
+          <span class="entry__tag threat">Data breaches</span>
+          <span class="entry__title">When a company's vault is opened</span>
+          <span class="entry__chevron" aria-hidden="true"></span>
+        </button>
+        <div class="entry__panel">
+          <p>A company you have an account with gets broken into, and your email, password, or personal details end up copied, sold, or leaked. You didn't do anything wrong , but you still need to respond.</p>
+          <p class="entry__example">Check whether your email has appeared in a known breach, and change that password everywhere it was reused.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 02 HABITS -->
+  <section class="briefing briefing--alt" id="habits" aria-labelledby="habits-title">
+    <div class="briefing__head">
+      <span class="briefing__num">02</span>
+      <div>
+        <h2 id="habits-title">Five habits that do most of the work</h2>
+        <p class="briefing__intro">None of these take more than a few minutes. Together they stop the overwhelming majority of real-world attacks.</p>
+      </div>
+    </div>
+
+    <ol class="habit-list">
+      <li>
+        <h3>Turn on multi-factor authentication</h3>
+        <p>Add a second step , an app code or security key  to your important accounts. It stops a stolen password from being enough on its own.</p>
+      </li>
+      <li>
+        <h3>Keep software updated</h3>
+        <p>Updates usually exist to close a specific hole attackers are already using. Turn on auto-update wherever you can, and don't postpone the rest.</p>
+      </li>
+      <li>
+        <h3>Back up what you can't lose</h3>
+        <p>Keep three copies of anything important, on two different kinds of storage, with one copy off-site or in the cloud. It's the one thing that makes ransomware a non-event.</p>
+      </li>
+      <li>
+        <h3>Treat public Wi-Fi as public</h3>
+        <p>Assume anything unencrypted on a coffee-shop network can be seen by someone else on it. Save banking and logins for trusted networks, or use a VPN.</p>
+      </li>
+      <li>
+        <h3>Pause before you click</h3>
+        <p>Urgency is a manufactured feeling. A message demanding immediate action is a reason to slow down, not speed up and hover the link, check the sender, verify another way.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="briefing" id="passwords" aria-labelledby="passwords-title">
+    <div class="briefing__head">
+      <span class="briefing__num">03</span>
+      <div>
+        <h2 id="passwords-title">Password safety, in plain terms</h2>
+        <p class="briefing__intro">Length beats cleverness. A password manager beats memory.</p>
+      </div>
+    </div>
+
+    <div class="compare">
+      <div class="compare__card compare__card--bad">
+        <p class="compare__label">Weak — guessed in seconds</p>
+        <p class="compare__sample">Ali2003 &nbsp;·&nbsp; password1 &nbsp;·&nbsp; qwerty123</p>
+        <p class="compare__note">Short, personal, or a dictionary word and usually reused everywhere.</p>
+      </div>
+      <div class="compare__card compare__card--good">
+        <p class="compare__label">Strong , a passphrase</p>
+        <p class="compare__sample">correct-harbor-lantern-42!</p>
+        <p class="compare__note">Four unrelated words plus a number are easy for you to recall and brutal for a machine to guess.</p>
+      </div>
+    </div>
+
+    <ul class="checklist">
+      <li><strong>Aim for length over complexity.</strong> Fourteen characters or more; every extra character multiplies the effort needed to crack it.</li>
+      <li><strong>Never reuse a password across sites.</strong> One leaked site shouldn't be able to unlock every account you own.</li>
+      <li><strong>Use a password manager.</strong> Tools like Bitwarden or 1Password generate and store a unique password per site , you only remember one master password.</li>
+      <li><strong>Don't store passwords in plain text.</strong> Not in a notes app, not in a spreadsheet, not on a sticky note on your monitor.</li>
+      <li><strong>Change a password the moment a site tells you it was involved in a breach</strong> and change it anywhere else you'd reused it.</li>
+    </ul>
+  </section>
+
+  <!-- 04 PHISHING -->
+  <section class="briefing briefing--alt" id="phishing" aria-labelledby="phishing-title">
+    <div class="briefing__head">
+      <span class="briefing__num">04</span>
+      <div>
+        <h2 id="phishing-title">Phishing: the six red flags</h2>
+        <p class="briefing__intro">Phishing doesn't hack your computer , it hacks your attention. Here's an annotated example.</p>
+      </div>
+    </div>
+
+    <div class="phish-exhibit">
+      <div class="phish-mail" role="img" aria-label="Example phishing email with red flags annotated">
+        <p><span class="flag-mark" data-flag="1">From: IT-Support@paypa1-secure.com</span></p>
+        <p><span class="flag-mark" data-flag="2">Subject: URGENT: Your account will be CLOSED in 24h!!</span></p>
+        <hr>
+        <p><span class="flag-mark" data-flag="4">Dear Costumer,</span></p>
+        <p><span class="flag-mark" data-flag="3">We detected unusuall login activity. You must verify you identety immediately or your account will be permanently suspended.</span></p>
+        <p><span class="flag-mark" data-flag="5">Click here to confirm: http://secure-paypa1.verify-login.ru/id</span></p>
+        <p><span class="flag-mark" data-flag="6">Send your password and card number to restore access.</span></p>
+        <p>Regards, The Security Team</p>
+      </div>
+
+      <ol class="flag-list">
+        <li data-flag="1"><strong>Look-alike sender domain</strong> "paypa1" with a numeral 1, not the real company domain.</li>
+        <li data-flag="2"><strong>Manufactured urgency</strong> a countdown and threat designed to short-circuit careful thinking.</li>
+        <li data-flag="3"><strong>Spelling and grammar errors</strong> "unusuall," "identety"  real institutions proofread.</li>
+        <li data-flag="4"><strong>Generic greeting</strong> "Dear Costumer" instead of your actual name.</li>
+        <li data-flag="5"><strong>A link that doesn't match its destination</strong> hover before you click, and check where it really goes.</li>
+        <li data-flag="6"><strong>A direct request for your password or card number</strong>  no legitimate company will ever ask for this by email.</li>
+      </ol>
+    </div>
+    <p class="phish-hint">Tip: tap or hover a red flag on either side to see its match highlight.</p>
+  </section>
+
+  <!-- 05 SOCIAL -->
+  <section class="briefing" id="social" aria-labelledby="social-title">
+    <div class="briefing__head">
+      <span class="briefing__num">05</span>
+      <div>
+        <h2 id="social-title">Safe social media practices</h2>
+        <p class="briefing__intro">Oversharing hands attackers the answers to your own security questions.</p>
+      </div>
+    </div>
+
+    <ul class="checklist checklist--grid">
+      <li><strong>Lock down your privacy settings.</strong> Review who can see your posts, friends list, and contact details , don't leave it on public by default.</li>
+      <li><strong>Think before posting real-time location.</strong> Save the vacation photos for after you're home.</li>
+      <li><strong>Be wary of quizzes and "get to know me" posts.</strong> First pet, mother's maiden name, street you grew up on , these are also common security-question answers.</li>
+      <li><strong>Verify before you trust a request.</strong> A friend's account asking for money or gift cards may be a cloned or hijacked profile.</li>
+      <li><strong>Limit what a stranger could learn about your routine.</strong> Workplace, school, gym schedule , small details add up to a profile of you.</li>
+      <li><strong>Use a different password for social accounts, with MFA on.</strong> A hijacked social account is often used to scam your own friends and followers.</li>
+    </ul>
+  </section>
+
+  <!-- 06 RECOVERY -->
+  <section class="briefing briefing--alt" id="recovery" aria-labelledby="recovery-title">
+    <div class="briefing__head">
+      <span class="briefing__num">06</span>
+      <div>
+        <h2 id="recovery-title">If an account is hacked: what to do, in order</h2>
+        <p class="briefing__intro">Move quickly, but move in this order , each step protects the ones after it.</p>
+      </div>
+    </div>
+
+    <ol class="steps">
+      <li>
+        <h3>Regain access first</h3>
+        <p>Use the service's account-recovery flow immediately. If you're locked out, most platforms have a "forgot password" or "my account is compromised" path  use it before anything else.</p>
+      </li>
+      <li>
+        <h3>Change the password  and make it unique</h3>
+        <p>Set a new, strong password that isn't used anywhere else. If you'd reused the old one elsewhere, change it on every one of those sites too.</p>
+      </li>
+      <li>
+        <h3>Turn on multi-factor authentication</h3>
+        <p>If it wasn't already on, enable it now. This is the single step most likely to keep the account yours going forward.</p>
+      </li>
+      <li>
+        <h3>Check for damage</h3>
+        <p>Review recent activity, connected devices, forwarding rules (especially in email), and any new payment methods or app permissions the attacker may have added.</p>
+      </li>
+      <li>
+        <h3>Sign out other sessions</h3>
+        <p>Most platforms let you remotely log out every other active session. Use it to cut off any device the attacker is still using.</p>
+      </li>
+      <li>
+        <h3>Warn people who trust you</h3>
+        <p>Let contacts know the account was compromised, especially if scam messages may have gone out in your name.</p>
+      </li>
+      <li>
+        <h3>Report it</h3>
+        <p>Report the incident to the platform, and to your bank if payment details were exposed. In serious cases, file a report with your local cybercrime authority.</p>
+      </li>
+    </ol>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <p>A public awareness page on common threats and personal security habits.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

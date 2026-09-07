@@ -1,0 +1,455 @@
+/* ============================================================
+   Tokens
+   ============================================================ */
+:root{
+  --ink:        #101619;
+  --ink-soft:   #1a2226;
+  --paper:      #ECE8DE;
+  --paper-dim:  #DFDACB;
+  --line:       #cdc6b2;
+  --line-dark:  #2c363b;
+  --amber:      #E3A335;
+  --amber-deep: #9c6c15;
+  --green:      #4C8C6B;
+  --red:        #B4472E;
+
+  --bg:         var(--paper);
+  --bg-alt:     var(--paper-dim);
+  --fg:         var(--ink);
+  --fg-muted:   #4c463a;
+  --card-bg:    #F5F2E9;
+  --border:     var(--line);
+  --accent:     var(--amber-deep);
+
+  --serif: "Source Serif 4", Georgia, serif;
+  --mono:  "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --max: 760px;
+}
+
+[data-theme="night"]{
+  --bg:        var(--ink);
+  --bg-alt:    var(--ink-soft);
+  --fg:        #ECE8DE;
+  --fg-muted:  #a9a294;
+  --card-bg:   #161d21;
+  --border:    var(--line-dark);
+  --accent:    var(--amber);
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.6;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.skip-link{
+  position: absolute; left: -999px; top: 0;
+  background: var(--accent); color: var(--ink); padding: 0.6em 1em;
+  z-index: 100;
+}
+.skip-link:focus{ left: 1em; top: 1em; }
+
+a{ color: inherit; }
+
+h1, h2, h3{ font-family: var(--serif); font-weight: 600; margin: 0; }
+
+:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   Masthead
+   ============================================================ */
+.masthead{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.masthead__inner{
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.masthead__mark{ color: var(--accent); flex-shrink: 0; margin-top: 0.2rem; }
+
+.masthead__text{ flex: 1; }
+
+.masthead__kicker{
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: var(--fg-muted);
+  margin: 0 0 0.35rem;
+}
+
+.masthead__title{
+  font-size: clamp(2.1rem, 5vw, 3rem);
+  line-height: 1.05;
+}
+
+.masthead__deck{
+  font-size: 1.1rem;
+  color: var(--fg-muted);
+  max-width: 58ch;
+  margin: 1.4rem 0 1.8rem;
+}
+
+.mode-toggle{
+  display: flex; align-items: center; gap: 0.5rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem 0.4rem 0.5rem;
+  color: var(--fg);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.2s ease;
+}
+.mode-toggle:hover{ border-color: var(--accent); }
+.mode-toggle__dot{
+  width: 0.9rem; height: 0.9rem; border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.mode-toggle[aria-pressed="true"] .mode-toggle__dot{ transform: rotate(180deg) scale(0.85); }
+
+.toc ol{
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.4rem 1.5rem;
+  padding: 0;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+.toc a{
+  text-decoration: none;
+  color: var(--fg-muted);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+}
+.toc a:hover{ color: var(--accent); border-color: var(--accent); }
+
+@media (min-width: 560px){
+  .toc ol{ grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ============================================================
+   Briefing sections
+   ============================================================ */
+.briefing{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 3.2rem 1.5rem;
+}
+.briefing--alt{
+  max-width: none;
+  background: var(--bg-alt);
+}
+.briefing--alt > *{
+  max-width: var(--max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.briefing__head{
+  display: flex;
+  gap: 1.1rem;
+  margin-bottom: 1.8rem;
+}
+.briefing__num{
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  color: var(--accent);
+  padding-top: 0.35rem;
+  flex-shrink: 0;
+}
+.briefing__head h2{
+  font-size: clamp(1.5rem, 3.4vw, 1.9rem);
+  margin-bottom: 0.5rem;
+}
+.briefing__intro{
+  color: var(--fg-muted);
+  margin: 0;
+  max-width: 56ch;
+}
+
+/* ============================================================
+   Accordion (threats)
+   ============================================================ */
+.accordion{ border-top: 1px solid var(--border); }
+.entry{ border-bottom: 1px solid var(--border); }
+
+.entry__trigger{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 1.1rem 0;
+  cursor: pointer;
+  color: var(--fg);
+  font-family: var(--serif);
+}
+
+.entry__tag{
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 3px;
+  padding: 0.2rem 0.5rem;
+  flex-shrink: 0;
+}
+
+.entry__title{
+  flex: 1;
+  font-size: 1.12rem;
+  font-weight: 600;
+}
+
+.entry__chevron{
+  width: 10px; height: 10px;
+  border-right: 2px solid var(--fg-muted);
+  border-bottom: 2px solid var(--fg-muted);
+  transform: rotate(45deg);
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+  margin-right: 0.2rem;
+}
+.entry__trigger[aria-expanded="true"] .entry__chevron{ transform: rotate(-135deg); }
+
+.entry__panel{
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s ease;
+}
+.entry__panel > div{ overflow: hidden; }
+.entry__trigger[aria-expanded="true"] + .entry__panel{ grid-template-rows: 1fr; }
+
+.entry__panel p{
+  margin: 0 0 0.8rem 0;
+  padding-left: calc(1rem + 5.6rem);
+  color: var(--fg-muted);
+  max-width: 60ch;
+}
+.entry__panel{ padding-bottom: 0.4rem; }
+.entry__panel .entry__example{
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+@media (max-width: 540px){
+  .entry__panel p{ padding-left: 0; }
+  .entry__trigger{ flex-wrap: wrap; }
+}
+
+/* ============================================================
+   Habit list / recovery steps (numbered sequences)
+   ============================================================ */
+.habit-list, .steps{
+  list-style: none;
+  counter-reset: item;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.4rem;
+}
+.habit-list li, .steps li{
+  counter-increment: item;
+  position: relative;
+  padding-left: 3.2rem;
+}
+.habit-list li::before, .steps li::before{
+  content: counter(item);
+  position: absolute;
+  left: 0; top: 0;
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  width: 2.1rem; height: 2.1rem;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.habit-list h3, .steps h3{
+  font-size: 1.08rem;
+  margin-bottom: 0.3rem;
+}
+.habit-list p, .steps p{
+  margin: 0;
+  color: var(--fg-muted);
+  max-width: 58ch;
+}
+
+/* ============================================================
+   Password compare cards
+   ============================================================ */
+.compare{
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 620px){
+  .compare{ grid-template-columns: 1fr 1fr; }
+}
+.compare__card{
+  border-radius: 6px;
+  padding: 1.3rem 1.4rem;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+}
+.compare__card--bad{ border-left: 4px solid var(--red); }
+.compare__card--good{ border-left: 4px solid var(--green); }
+.compare__label{
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  margin: 0 0 0.6rem;
+  color: var(--fg-muted);
+}
+.compare__sample{
+  font-family: var(--mono);
+  font-size: 1rem;
+  margin: 0 0 0.7rem;
+  word-break: break-word;
+}
+.compare__note{ margin: 0; color: var(--fg-muted); font-size: 0.92rem; }
+
+.checklist{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+.checklist li{
+  padding-left: 1.6rem;
+  position: relative;
+  color: var(--fg-muted);
+  max-width: 62ch;
+}
+.checklist li::before{
+  content: "";
+  position: absolute; left: 0; top: 0.55em;
+  width: 8px; height: 8px;
+  background: var(--accent);
+}
+.checklist strong{ color: var(--fg); }
+.checklist--grid{
+  display: grid;
+  gap: 1rem 2rem;
+}
+@media (min-width: 640px){
+  .checklist--grid{ grid-template-columns: 1fr 1fr; }
+}
+
+/* ============================================================
+   Phishing exhibit
+   ============================================================ */
+.phish-exhibit{
+  display: grid;
+  gap: 1.6rem;
+}
+@media (min-width: 760px){
+  .phish-exhibit{ grid-template-columns: 1.1fr 0.9fr; align-items: start; }
+}
+
+.phish-mail{
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.4rem 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.86rem;
+  line-height: 1.75;
+}
+.phish-mail hr{ border: none; border-top: 1px solid var(--border); margin: 0.7rem 0; }
+.phish-mail p{ margin: 0.5rem 0; }
+
+.flag-mark{
+  border-radius: 3px;
+  padding: 0.05em 0.15em;
+  transition: background 0.2s ease, color 0.2s ease;
+  cursor: default;
+}
+.flag-mark.is-active{
+  background: var(--red);
+  color: #fff;
+}
+
+.flag-list{
+  list-style: none;
+  counter-reset: flag;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+.flag-list li{
+  counter-increment: flag;
+  padding-left: 2.1rem;
+  position: relative;
+  color: var(--fg-muted);
+  font-size: 0.95rem;
+  border-radius: 4px;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  transition: background 0.2s ease;
+}
+.flag-list li::before{
+  content: counter(flag);
+  position: absolute; left: 0; top: 0.15rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--red);
+  border: 1px solid var(--red);
+  width: 1.5rem; height: 1.5rem;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.flag-list li.is-active{ background: color-mix(in srgb, var(--red) 14%, transparent); }
+.flag-list strong{ color: var(--fg); }
+
+.phish-hint{
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--fg-muted);
+  margin-top: 1.2rem;
+}
+
+/* ============================================================
+   Colophon
+   ============================================================ */
+.colophon{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  color: var(--fg-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+}
